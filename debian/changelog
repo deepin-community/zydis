@@ -1,5 +1,71 @@
-template-repository (1.0-1) unstable; urgency=medium
+zydis (4.0.0-1) unstable; urgency=medium
 
-  * Initial release
+  * New upstream version 4.0.0
+  * Upload to unstable
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+ -- Andrea Pappacoda <andrea@pappacoda.it>  Thu, 24 Nov 2022 10:56:33 +0100
+
+zydis (4.0.0~rc.1-1) experimental; urgency=medium
+
+  * New upstream version 4.0.0~rc.1
+  * d/control: libzydis3.2 -> libzydis4.0
+  * d/control: add new libzydis-doc package
+  * d/control: build on any architecture
+  * d/patches: drop upstreamed patches
+
+ -- Andrea Pappacoda <andrea@pappacoda.it>  Mon, 07 Nov 2022 01:39:25 +0100
+
+zydis (3.2.1-6) unstable; urgency=medium
+
+  * d/patches: build Doxygen documentation
+  * d/rules: enable BUILD_RPATH_USE_ORIGIN
+  * d/tests: add autopkgtests
+
+ -- Andrea Pappacoda <andrea@pappacoda.it>  Sun, 02 Oct 2022 15:14:14 +0200
+
+zydis (3.2.1-5) unstable; urgency=medium
+
+  * d/libzydis3.2.symbols: explicitly exclude x32 from 32-bits symbols
+  * d/watch: use GitHub's API
+
+ -- Andrea Pappacoda <andrea@pappacoda.it>  Wed, 12 Jan 2022 23:45:45 +0100
+
+zydis (3.2.1-4) unstable; urgency=medium
+
+  * d/control: depend on zycore >= 1.1.0-3 for testing migration
+  * d/control: add Vcs fields
+  * d/rules: drop superfluous -DCMAKE_LIBRARY_ARCHITECTURE
+
+ -- Andrea Pappacoda <andrea@pappacoda.it>  Mon, 06 Dec 2021 21:59:47 +0100
+
+zydis (3.2.1-3) unstable; urgency=medium
+
+  * libzydis-dev: add Depends on libzycore-dev
+  * d/rules: enable qa features in DEB_BUILD_MAINT_OPTIONS
+  * Switch to git-buildpackage based packaging
+
+ -- Andrea Pappacoda <andrea@pappacoda.it>  Sun, 21 Nov 2021 01:47:02 +0100
+
+zydis (3.2.1-2) unstable; urgency=medium
+
+  * Source-only reupload
+
+ -- Andrea Pappacoda <andrea@pappacoda.it>  Tue, 16 Nov 2021 09:13:55 +0100
+
+zydis (3.2.1-1) unstable; urgency=medium
+
+  * New upstream release.
+    - CVE-2021-41253 (Closes: #999431)
+    - New package libzydis3.2, dropped libzydis3.1
+  * d/control: reword description. Closes: #996390
+  * Add zydis-tools package
+  * d/rules: run tests
+  * d/control: mark packages with Multi-Arch
+
+ -- Andrea Pappacoda <andrea@pappacoda.it>  Thu, 11 Nov 2021 12:21:08 +0100
+
+zydis (3.1.0-1) unstable; urgency=low
+
+  * Initial release. Closes: #995921
+
+ -- Andrea Pappacoda <andrea@pappacoda.it>  Fri, 08 Oct 2021 12:42:28 +0200

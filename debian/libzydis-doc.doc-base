@@ -1,0 +1,12 @@
+Document: zydis
+Title: Zydis API documentation
+Author: zyantific <contact@zyantific.com>
+Abstract: Zydis is a fast x86/x86-64 disassembler library. It supports all x86 and
+ AMD64 instructions and many vendor extensions, doesn't perform dynamic
+ memory allocations, is thread safe by design and has no third party
+ dependency - not even libc.
+Section: Programming/C
+
+Format: HTML
+Index: /usr/share/doc/libzydis-doc/api/index.html
+Files: /usr/share/doc/libzydis-doc/api/*.html

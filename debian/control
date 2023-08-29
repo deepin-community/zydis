@@ -1,15 +1,77 @@
-Source: template-repository
-Section: unknown
+Source: zydis
+Section: libs
 Priority: optional
-Maintainer: Tsic404 <liuheng@deepin.org>
-Build-Depends: debhelper (>= 11)
-Standards-Version: 4.1.3
-Homepage: https://github.com/deepin-community/template-repository
-#Vcs-Browser: https://salsa.debian.org/debian/deepin-community-template-repository
-#Vcs-Git: https://salsa.debian.org/debian/deepin-community-template-repository.git
+Maintainer: Andrea Pappacoda <andrea@pappacoda.it>
+Build-Depends: debhelper-compat (= 13)
+Build-Depends-Arch: cmake,
+                    libzycore-dev (>= 1.1.0-3),
+                    python3 <!nocheck>,
+                    ronn
+Build-Depends-Indep: cmake,
+                     doxygen <!nodoc>,
+                     doxygen-awesome-css <!nodoc>,
+                     graphviz <!nodoc>,
+                     libzycore-dev (>= 1.1.0-3),
+                     python3 <!nocheck>,
+                     ronn
+Standards-Version: 4.6.1
+Homepage: https://zydis.re
+Vcs-Git: https://salsa.debian.org/debian/zydis.git
+Vcs-Browser: https://salsa.debian.org/debian/zydis
+Rules-Requires-Root: no
 
-Package: template-repository
+Package: libzydis4.0
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Multi-Arch: same
+Depends: ${misc:Depends},
+         ${shlibs:Depends}
+Description: fast and lightweight x86/x86-64 disassembler library
+ Zydis is a fast x86/x86-64 disassembler library. It supports all x86 and
+ AMD64 instructions and many vendor extensions, doesn't perform dynamic
+ memory allocations, is thread safe by design and has no third party
+ dependency - not even libc.
+ .
+ This package contains the shared library.
+
+Package: libzydis-dev
+Section: libdevel
+Architecture: any
+Multi-Arch: same
+Depends: libzycore-dev (>= 1.0.0-2),
+         libzydis4.0 (= ${binary:Version}),
+         ${misc:Depends}
+Description: fast and lightweight x86/x86-64 disassembler library - development
+ Zydis is a fast x86/x86-64 disassembler library. It supports all x86 and
+ AMD64 instructions and many vendor extensions, doesn't perform dynamic
+ memory allocations, is thread safe by design and has no third party
+ dependency - not even libc.
+ .
+ This package contains the development files.
+
+Package: libzydis-doc
+Section: doc
+Architecture: all
+Multi-Arch: foreign
+Depends: ${misc:Depends}
+Description: fast and lightweight x86/x86-64 disassembler library - documentation
+ Zydis is a fast x86/x86-64 disassembler library. It supports all x86 and
+ AMD64 instructions and many vendor extensions, doesn't perform dynamic
+ memory allocations, is thread safe by design and has no third party
+ dependency - not even libc.
+ .
+ This package contains the generated Doxygen documentation.
+
+Package: zydis-tools
+Section: devel
+Architecture: any
+Multi-Arch: foreign
+Depends: libzydis4.0 (= ${binary:Version}),
+         ${misc:Depends},
+         ${shlibs:Depends}
+Description: fast and lightweight x86/x86-64 disassembler library - tools
+ Zydis is a fast x86/x86-64 disassembler library. It supports all x86 and
+ AMD64 instructions and many vendor extensions, doesn't perform dynamic
+ memory allocations, is thread safe by design and has no third party
+ dependency - not even libc.
+ .
+ This package contains the command line tools.
