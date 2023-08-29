@@ -1,0 +1,22 @@
+#!/bin/sh
+
+set -eu
+
+cd "$AUTOPKGTEST_TMP"
+
+cat <<'EOF' > CMakeLists.txt
+cmake_minimum_required(VERSION 3.13)
+
+project("zydis-autopkgtest" LANGUAGES C)
+
+find_package("zydis")
+
+add_executable(main "${test_file}")
+target_link_libraries(main Zydis::Zydis)
+EOF
+
+export CFLAGS='-Wall -Wextra -Wpedantic -Werror'
+
+cmake -Dtest_file:FILEPATH="$OLDPWD/examples/Formatter01.c" -B build
+cmake --build build
+./build/main
